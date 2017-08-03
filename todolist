@@ -1,0 +1,19 @@
+Devise authentication
+
+registration/login with facebook, twitter, gmail or other
+
+on top of the page the incons for the facebook/google/twitter login
+
+left side timer to start
+below calendar that saves all the details
+
+picture of the player that logs in with facebook
+
+on the right pictures of all the players that are doing pomodoro and their results
+
+how do you compare?
+every time you have a pomodoro, you need to set the amount of time you take to do it. if you fail you loose
+
+
+
+Application controller Controller
