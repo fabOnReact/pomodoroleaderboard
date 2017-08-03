@@ -1,3 +1,5 @@
+ruby "2.3.3"
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -69,3 +71,4 @@ gem 'devise', '~> 4.3'
 gem 'devise-bootstrapped', '~> 0.1.1'
 gem 'simple_form'
 gem 'jquery-turbolinks', '~> 2.1'
+gem 'rails_12factor', group: :production
