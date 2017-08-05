@@ -1,3 +1,5 @@
+-------------------------------------------------------------------
+
 Devise authentication
 
 registration/login with facebook, twitter, gmail or other
@@ -14,10 +16,7 @@ on the right pictures of all the players that are doing pomodoro and their resul
 how do you compare?
 every time you have a pomodoro, you need to set the amount of time you take to do it. if you fail you loose
 
-
-
 Application controller Controller
-
 
 ---------------------- SHORTCUTS --------------------------------
 heroku run rails console
