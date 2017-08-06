@@ -6,6 +6,9 @@
  * @license MIT - http://jbrooksuk.mit-license.org
  */
 
+
+/* Enance this function so that it return the remaining time, then you need to get that time 
+and include it in the page */
 (function($) {
 	jQuery.timer = function(interval, callback, options) {
 		// Create options for the default reset value
