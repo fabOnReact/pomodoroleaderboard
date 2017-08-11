@@ -19,10 +19,7 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn',
-    sprite: 'grunt-spritesmith',
-    foo: '@abc/grunt-foo',        // for private modules.
-    bar: 'custom/bar.js'          // for custom tasks.    
+    cdnify: 'grunt-google-cdn'
   });
 
   // Configurable paths for the application
@@ -54,7 +51,29 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
-      compass: {
+      compass: {grunt.initConfig({
+    connect: {
+        server: {
+            options: {
+                port: 9000,
+                hostname: 'localhost'
+            },
+            proxies: [
+                {
+                    context: '/cortex',
+                    host: '10.10.2.202',
+                    port: 8080,
+                    https: false,
+                    xforward: false,
+                    headers: {
+                        "x-custom-added-header": value
+                    },
+                    hideHeaders: ['x-removed-header']
+                }
+            ]
+        }
+    }
+})
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'postcss:server']
       },
@@ -73,7 +92,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // The actual grunt server settings
     connect: {
         server: {
             options: {
@@ -92,31 +110,31 @@ module.exports = function (grunt) {
                     },
                     hideHeaders: ['x-removed-header']
                 }
-            ],
-            livereload: {
-                            options: {
-                                middleware: function (connect, options) {
-                                    if (!Array.isArray(options.base)) {
-                                        options.base = [options.base];
-                                    }
+            ]
+        }
+    }
 
-                                    // Setup the proxy
-                                    var middlewares = [require('grunt-connect-proxy/lib/utils').proxyRequest];
-
-                                    // Serve static files.
-                                    options.base.forEach(function(base) {
-                                        middlewares.push(connect.static(base));
-                                    });
-
-                                    // Make directory browse-able.
-                                    var directory = options.directory || options.base[options.base.length - 1];
-                                    middlewares.push(connect.directory(directory));
-
-                                    return middlewares;
-                                }
-                            }
-            },   
-        }, 
+    // The actual grunt server settings
+    connect: {
+      options: {
+        port: 9000,
+        // Change this to '0.0.0.0' to access the server from outside.
+        hostname: 'localhost',
+        livereload: 35729
+      },
+      proxies: [
+        {
+          context: '/api',
+          host: 'localhost',
+          port: 3000
+          https: false,
+          xforward: false,
+          headers: {
+              "x-custom-added-header": value
+          },
+          hideHeaders: ['x-removed-header']
+        }
+      ],
       /*livereload: {
         options: {
           open: true,
@@ -545,10 +563,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
-      'watch',
-      'configureProxies',
-      'livereload-start',
-      'open'
+      'watch'
     ]);
   });
 
