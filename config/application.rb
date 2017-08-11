@@ -13,7 +13,7 @@ module Pomodoroleaderboard
     config.load_defaults 5.1
     config.api_only = true
     config.debug_exception_response_format = :default
-    config.debug_exception_response_format = :api
+    #config.debug_exception_response_format = :api
 
   	config.assets.paths << Rails.root.join("vendor","javascripts")
   	config.assets.paths << Rails.root.join("vendor", "stylesheets")

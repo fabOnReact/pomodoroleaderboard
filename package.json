@@ -1,5 +1,10 @@
 {
   "name": "pomodoroleaderboard",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-connect-proxy": "^0.2.0"
+  },
+  "heroku-postbuild": "ng build",
+  "preinstall": "npm install -g node-gyp"
 }

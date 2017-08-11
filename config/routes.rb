@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-	resources :application
-	root 'application#index'
+	scope '/api' do
+		resources :timers, except: [:new, :edit]
+	end
 end

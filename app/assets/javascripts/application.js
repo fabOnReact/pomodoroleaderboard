@@ -13,6 +13,5 @@
 //= require jquery2
 //= require rails-ujs
 //= require bootstrap-sprockets
-//= require jquery.timer
 //= require main
 //= require turbolinks

@@ -1,5 +1,4 @@
 -------------------------------------------------------------------
-
 angular js timer 
 
 rails api
@@ -23,6 +22,10 @@ how do you compare?
 every time you have a pomodoro, you need to set the amount of time you take to do it. if you fail you loose
 
 Application controller Controller
+
+
+---------------------- IMPORTANT --------------------------------
+CSRF IS DISABLED, YOU NEED TO FIX THIS SECURITY ISSUE
 
 ---------------------- SHORTCUTS --------------------------------
 heroku run rails console
